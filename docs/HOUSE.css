@@ -1,0 +1,375 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+/*-------------------------------------------------------------------------- Estilos gerais do body----------------------------------------------------------------------------------------------------------- */
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+}
+
+/*---------------------------------------------------------------------------parte de configurações gerais do menu---------------------------------------------------------------------------------------------*/
+header {
+    width: 100%;/*ALTURA*/
+    height: 65px;/*LARGURA*/
+    background-color: #000;
+    box-shadow: 0px 5px 20px #000; /* bota uma sombra no menu */
+    padding: 10px; /* para nao deixar os elementos colados */
+    display: flex; /* automaticamente viram flex itens, deixa um ao lado do outro. Nao se aplica aos filhos dos filhos */
+    align-items: center; /* para centralizar os box menu no centro */
+    flex-wrap: wrap; /* caso um box se choque com outro */
+    justify-content: center; /*deixa o menu no centro */
+    font-family: Arial, sans-serif;
+    position: fixed;   /* Fixa o menu na posição */
+    top: 0; /* Define a distância do topo (0 para grudar no topo) */
+    left: 0;  /* Alinha à esquerda */
+    z-index: 1000;     /* Garante que o menu fique acima de outros elementos */         
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    gap: 20px; /* Espaço entre os itens */
+}
+
+/*--------------------------------------------------------------------------------------MENU--------------------------------------------------------------------------------------------------------------------*/
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 30px;
+
+}
+
+.menu li a {
+    color: #Ff0000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+    background-color: #444;
+}
+
+/*----------------------------------------------------------------------------------- Estilo para o submenu-------------------------------------------------------------------------------------------------- */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    background-color: #444;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 180px; /* Largura do submenu */
+}
+
+.submenu li a {
+    color:#fff;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    align-items: center; /* para centralizar os box menu no centro */
+}
+
+.submenu li a:hover {
+    background-color: #Ff0000;
+}
+
+/* -------------------------------------------------------------------------Mostrar submenu ao passar o mouse sobre o item "Marcas" -------------------------------------------------------------------------------*/
+.menu-marcas:hover .submenu {
+    display: block;
+}
+
+.menu li:hover {
+    background-color: #555;
+}
+
+/* -----------------------------------------------------------------------------------------Slider de Promoções ----------------------------------------------------------------------------------------------------*/
+.slider {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.slider-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px); /* Aplica o desfoque na imagem */
+}
+
+/* -------------------------------------------------------------------------------------------Efeito ao passar o mouse - remove o desfoque ---------------------------------------------------------------------------*/
+.slider:hover .slide img {
+    filter: blur(0); /* Remove o desfoque quando o mouse passa sobre o slider */
+}
+
+.promo-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; 
+}
+
+.promo-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.promo-text p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* ---------------------------------------------------------------------------------------Estilos para o botão de inscrição e a ficha---------------------------------------------------------------------------------- */
+.inscricao-container {
+    position: fixed;
+    right: 10px; /* Alinha à direita */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao-inscreva {
+    writing-mode: vertical-rl; /* Deixa o botão na vertical */
+    transform: rotate(0deg); /* Inverte a orientação do texto */
+    background-color: white;
+    color: #Ff0000;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.botao-inscreva:hover {
+    background-color: #440000;
+}
+
+/* -----------------------------------------------------------------------------------------------Ficha de inscrição - inicialmente oculta------------------------------------------------------------------------------- */
+.ficha-inscricao {
+    display: none;
+    background-color: #Ff0000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    border-radius: 10px;
+}
+
+.inscricao-container:hover .ficha-inscricao {
+    display: block;
+}
+
+/*------------------------------------------------------------------------------------------------------------------PRODUTOS------------------------------------------------------------------------------------------------------*/
+.produtos{
+    max-width: 2000px;
+    margin: 0 auto; /* para centralizar as imagens*/
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #222;
+}
+
+.container div{
+    flex: 1 1 400px ; /* ajustando minha flex item dentro de um container maior*/
+    margin: 10px;
+}
+
+.container {
+  
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+.produto {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.produto img {
+    width: 100%;
+    border-radius: 10px;
+      transition: transform 0.3s ease; /* Transição suave para o movimento */
+}
+
+.produto h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.produto p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.btn-comprar {
+    background-color: white;
+    color: #Ff0000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #440000;
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+}
+/*--------------------------------------------------------------------------------------------------------------BOX CIRCULAR-----------------------------------------------------------------------------------------*/
+.modelos{
+    display: flex;
+}
+
+.imagem-circular {
+    width: 350px; /* Define a largura da imagem */
+    height: 350px; /* Define a altura da imagem */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+    border: 4px solid #c51e1e; /* Adiciona uma borda opcional */
+    margin: 60px; /* Espaçamento externo */
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+a:hover {
+     background-color: #575757; /* Cor de fundo ao passar o mouse */
+}
+/* -------------------------------------------------------------------------------------Estilos para o botão de WhatsApp ---------------------------------------------------------------------------------------------*/
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    background-color: #25d366;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+/*---------------------------------------------------------------------------------------------------------- Rodapé------------------------------------------------------------------------------------------------- */
+footer {
+    background-color: #000;
+    padding: 30px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    max-width: 200px;
+    text-align: left;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #Ff0000;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #aaa;
+}
+
+.social li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social li a {
+    font-size: 14px;
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
